@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const url = "http://localhost:5000/posts";
-
+//using this url we will fetchPosts
 export const fetchPosts = () => axios.get(url);
 export const createPost = (newPost) => axios.post(url, newPost);
 export const likePost = (id) => axios.patch(`${url}/${id}/likePost`);

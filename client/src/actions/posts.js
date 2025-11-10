@@ -1,11 +1,18 @@
-import { FETCH_ALL, CREATE, UPDATE, DELETE, LIKE } from '../constants/actionTypes';
+import {
+  FETCH_ALL,
+  CREATE,
+  UPDATE,
+  DELETE,
+  LIKE,
+} from "../constants/actionTypes";
 
-import * as api from '../api/index.js';
-
+import * as api from "../api/index.js";
+//async in front of the function definition allows you to use the await keyword inside the function
+//await before api.fetchPosts() tells JavaScript to pause execution inside the getPosts function until the API call promise resolves and returns data.
 export const getPosts = () => async (dispatch) => {
   try {
     const { data } = await api.fetchPosts();
-
+    //yeh idhr se fetch karke data dispatch kar rha reducer ko
     dispatch({ type: FETCH_ALL, payload: data });
   } catch (error) {
     console.log(error.message);
